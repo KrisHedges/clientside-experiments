@@ -14,27 +14,25 @@ $(document).ready(function(){
     };
     createTheater();
 
-    now = new Date();
-    seed = now.getSeconds();    
+    seed = Math.floor(Math.random());  
     
     blastRed = function(){
-       $(redPiece).css('left', Math.floor(Math.random(seed*2)*101)+'%').appendTo(player);
+       $(redPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
     blastGreen = function(){
-       $(greenPiece).css('left', Math.floor(Math.random(seed*3)*101)+'%').appendTo(player);
+       $(greenPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
     blastPurple = function(){
-       $(purplePiece).css('left', Math.floor(Math.random(seed-4)*101)+'%').appendTo(player);
+       $(purplePiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
     blastYellow = function(){
-      $(yellowPiece).css('left', Math.floor(Math.random(seed/2)*101)+'%').appendTo(player);
+      $(yellowPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
     blastBlack = function(){
       $(blackPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
 
-    var blastEm = setInterval(function(){
-      console.log('Blasting Em???')
+    var confettiTime = function(){    
       setTimeout (function(){blastRed();}, 100 );
       setTimeout (function(){blastGreen();}, 200 );  
       setTimeout (function(){blastYellow();}, 0 );
@@ -45,7 +43,11 @@ $(document).ready(function(){
       setTimeout (function(){blastYellow();}, 320 );
       setTimeout (function(){blastPurple();}, 50 );
       setTimeout (function(){blastBlack();}, 10 );
-    }, 330);
+    };
+
+    var blastEm = setInterval(function(){
+      confettiTime();
+    }, 220);
 
     var cleanEm = setInterval(function(){
       console.log('Cleaning Em????');                                
@@ -64,7 +66,7 @@ $(document).ready(function(){
       setTimeout(function(){ 
         $('.black').first().remove();
       }, 1000);
-    },400);
+    },500);
 
     setTimeout(function(){
       console.log('Clear the Stage?????');                                
@@ -75,7 +77,6 @@ $(document).ready(function(){
       console.log('Stage Clear');
       clearInterval(blastEm);
       clearInterval(cleanEm);
-
     }, 3000);
   };  
 
