@@ -106,5 +106,7 @@ $(document).ready(function(){
       repeatrunning = true;
     };
   });
+
+  dropIt();
                  
 });
