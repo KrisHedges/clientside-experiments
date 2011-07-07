@@ -6,6 +6,24 @@ body {
   font-size:1em;
   text-align:center;
 }
+@keyframes fade {
+  0% { opacity: 1.0; }
+  100% { opacity: 0.0; }
+}
+
+@keyframes drop {
+  from {top: -2%;}
+  to {top:103%;}
+}
+@keyframes jiggle {
+  from {left:-10px;}
+  50% {left:10px;}
+  to {left:-10px;}
+}
+@keyframes spin{
+    0%   { transform: rotate(0deg) translate(4px, 8px);}
+    100%   { transform: rotate(1800deg) translate(4px, 8px);}
+}
 @-webkit-keyframes fade {
   0% { opacity: 1.0; }
   100% { opacity: 0.0; }
@@ -24,6 +42,24 @@ body {
     0%   { -webkit-transform: rotate(0deg) translate(4px, 8px);}
     100%   { -webkit-transform: rotate(1800deg) translate(4px, 8px);}
 }
+@-moz-keyframes fade {
+  0% { opacity: 1.0; }
+  100% { opacity: 0.0; }
+}
+
+@-moz-keyframes drop {
+  from {top: -2%;}
+  to {top:103%;}
+}
+@-moz-keyframes jiggle {
+  from {left:-10px;}
+  50% {left:10px;}
+  to {left:-10px;}
+}
+@-moz-keyframes spin{
+    0%   { -moz-transform: rotate(0deg) translate(4px, 8px);}
+    100%   { -moz-transform: rotate(1800deg) translate(4px, 8px);}
+}
 #stage{
   position:absolute;
   top:0;
@@ -36,7 +72,7 @@ body {
 .confetti-container {
   position: relative;  
   width:100%;
-  height:80%;
+  height:90%;
   float:left;
   margin:0;
   padding:0;
@@ -44,6 +80,10 @@ body {
   -webkit-animation-iteration-count:infinite;
   -webkit-animation-direction: alternate;
   -webkit-animation-duration: 0.3s;
+  -moz-animation-name: jiggle;
+  -moz-animation-duration: 0.3s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-direction: alternate;
 }
 .confetti-piece {
   position: absolute;
@@ -56,6 +96,11 @@ body {
 	-webkit-animation-direction: normal; 
 	-webkit-animation-timing-function: ease-out;
   -webkit-animation-duration:1.9s;
+	-moz-animation-name: fade, drop, spin;
+  -moz-animation-duration:1.9s;
+	-moz-animation-timing-function: ease-out;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: normal; 
 }
 .red {
   background-color: #da0000;
@@ -72,8 +117,6 @@ body {
 .purple {
   background-color: #5e3e80;
 }
-
-
 button{
   padding:10px;
 }

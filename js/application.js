@@ -34,28 +34,27 @@ $(document).ready(function(){
 
     //This just an ordered by color sequence this could be made random as well
     var confettiTime = function(){    
-      setTimeout (function(){blastRed();}, 100 );
-      setTimeout (function(){blastGreen();}, 200 );  
+      setTimeout (function(){blastRed();}, 99 );
+      setTimeout (function(){blastGreen();}, 205 );  
       setTimeout (function(){blastYellow();}, 0 );
-      setTimeout (function(){blastPurple();}, 150 );
-      setTimeout (function(){blastBlack();}, 220 );
-      setTimeout (function(){blastRed();}, 250 );
-      setTimeout (function(){blastGreen();}, 290 );  
-      setTimeout (function(){blastYellow();}, 320 );
-      setTimeout (function(){blastPurple();}, 50 );
-      setTimeout (function(){blastBlack();}, 10 );
+      setTimeout (function(){blastPurple();}, 153 );
+      setTimeout (function(){blastBlack();}, 224 );
+      setTimeout (function(){blastRed();}, 257 );
+      setTimeout (function(){blastGreen();}, 291 );  
+      setTimeout (function(){blastYellow();}, 318 );
+      setTimeout (function(){blastPurple();}, 53 );
+      setTimeout (function(){blastBlack();}, 12 );
     };
 
     var blastEm = setInterval(function(){
       confettiTime();
-    },90); //The Lower this number the more confetti is generated
+    },140); //The Lower this number the more confetti is generated
 
     //Shortblast - Comment out for continuous blasting
     setTimeout(function(){clearInterval(blastEm);}, 800);
 
 
     var cleanEm = setInterval(function(){
-      console.log('Cleaning Em????');                                
       setTimeout(function(){ 
         $('.red').first().remove();
       },1000);
@@ -78,16 +77,34 @@ $(document).ready(function(){
       stage.fadeOut(1500, function(){
         $('#stage').remove(); 
        });
-      console.log('Stage Clear');
       clearInterval(blastEm);
       clearInterval(cleanEm);
     },800);
   };  
 
-  $('button').click(function(){
+  $('#drop').click(function(){
     dropIt();
   });
+
+  repeatrunning = false
   
-  dropIt();
-                   
+  var repeatedlyDropIt = function(){
+    repeatrunning = true
+    dropIt();
+    keepDropping = setInterval(function(){
+      dropIt();
+    }, 1800);  
+  };
+
+  $('#repeated').click(function(){
+    if (repeatrunning == true){
+      clearInterval(keepDropping);
+      repeatrunning = false;
+    }
+    else {
+      repeatedlyDropIt();
+      repeatrunning = true;
+    };
+  });
+                 
 });
