@@ -1,37 +1,38 @@
 $(document).ready(function(){
-  dropIt = function(){
-    theater = "<div id='stage'><div class='confetti-container'></div></div>";
-    redPiece = "<div class='red confetti-piece'></div>";
-    greenPiece = "<div class='green confetti-piece'></div>";
-    yellowPiece = "<div class='yellow confetti-piece'></div>";
-    purplePiece = "<div class='purple confetti-piece'></div>";
-    blackPiece = "<div class='black confetti-piece'></div>";
+  var dropIt = function(){
+    var theater = "<div id='stage'><div class='confetti-container'></div></div>";
+    var redPiece = "<div class='red confetti-piece'></div>";
+    var greenPiece = "<div class='green confetti-piece'></div>";
+    var yellowPiece = "<div class='yellow confetti-piece'></div>";
+    var purplePiece = "<div class='purple confetti-piece'></div>";
+    var blackPiece = "<div class='black confetti-piece'></div>";
     
 
-    createTheater = function(){
+    var createTheater = function(){
       $(theater).appendTo('body');
       player = $(".confetti-container");
     };
     createTheater();
 
-    seed = Math.floor(Math.random());  
+    var seed = Math.floor(Math.random());  
     
-    blastRed = function(){
+    var blastRed = function(){
        $(redPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
-    blastGreen = function(){
+    var blastGreen = function(){
        $(greenPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
-    blastPurple = function(){
+    var blastPurple = function(){
        $(purplePiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
-    blastYellow = function(){
+    var blastYellow = function(){
       $(yellowPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
-    blastBlack = function(){
+    var blastBlack = function(){
       $(blackPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
 
+    //This just an ordered by color sequence this could be made random as well
     var confettiTime = function(){    
       setTimeout (function(){blastRed();}, 100 );
       setTimeout (function(){blastGreen();}, 200 );  
@@ -47,29 +48,32 @@ $(document).ready(function(){
 
     var blastEm = setInterval(function(){
       confettiTime();
-    }, 220);
+    },90); //The Lower this number the more confetti is generated
+
+    //Shortblast - Comment out for continuous blasting
+    setTimeout(function(){clearInterval(blastEm);}, 800);
+
 
     var cleanEm = setInterval(function(){
       console.log('Cleaning Em????');                                
       setTimeout(function(){ 
         $('.red').first().remove();
-      }, 1000);
+      },1000);
       setTimeout(function(){ 
         $('.green').first().remove();
-      }, 1000);
+      },1000);
       setTimeout(function(){ 
         $('.purple').first().remove();
-      }, 1000);
+      },1000);
       setTimeout(function(){ 
         $('.yellow').first().remove();
-      }, 1000);
+      },1000);
       setTimeout(function(){ 
         $('.black').first().remove();
-      }, 1000);
-    },500);
+      },1000);
+    },800);
 
     setTimeout(function(){
-      console.log('Clear the Stage?????');                                
       stage = $("#stage");
       stage.fadeOut(1500, function(){
         $('#stage').remove(); 
@@ -77,7 +81,7 @@ $(document).ready(function(){
       console.log('Stage Clear');
       clearInterval(blastEm);
       clearInterval(cleanEm);
-    }, 3000);
+    },800);
   };  
 
   $('button').click(function(){
