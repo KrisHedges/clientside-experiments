@@ -6,7 +6,6 @@ $(document).ready(function(){
     var yellowPiece = "<div class='yellow confetti-piece'></div>";
     var purplePiece = "<div class='purple confetti-piece'></div>";
     var blackPiece = "<div class='black confetti-piece'></div>";
-    
 
     var createTheater = function(){
       $(theater).appendTo('body');
@@ -48,11 +47,10 @@ $(document).ready(function(){
 
     var blastEm = setInterval(function(){
       confettiTime();
-    },140); //The Lower this number the more confetti is generated
+    },110); //The Lower this number the more confetti is generated
 
     //Shortblast - Comment out for continuous blasting
     setTimeout(function(){clearInterval(blastEm);}, 800);
-
 
     var cleanEm = setInterval(function(){
       setTimeout(function(){ 
@@ -86,10 +84,10 @@ $(document).ready(function(){
     dropIt();
   });
 
-  repeatrunning = false
+  var repeatrunning = false;
   
   var repeatedlyDropIt = function(){
-    repeatrunning = true
+    var repeatrunning = true;
     dropIt();
     keepDropping = setInterval(function(){
       dropIt();
