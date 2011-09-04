@@ -14,7 +14,6 @@ $(document).ready(function(){
     createTheater();
 
     var seed = Math.floor(Math.random());  
-    
     var blastRed = function(){
        $(redPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
@@ -47,33 +46,23 @@ $(document).ready(function(){
 
     var blastEm = setInterval(function(){
       confettiTime();
-    },110); //The Lower this number the more confetti is generated
+    },115); //The Lower this number the more confetti is generated
 
     //Shortblast - Comment out for continuous blasting
     setTimeout(function(){clearInterval(blastEm);}, 800);
 
     var cleanEm = setInterval(function(){
-      setTimeout(function(){ 
-        $('.red').first().remove();
-      },1000);
-      setTimeout(function(){ 
-        $('.green').first().remove();
-      },1000);
-      setTimeout(function(){ 
-        $('.purple').first().remove();
-      },1000);
-      setTimeout(function(){ 
-        $('.yellow').first().remove();
-      },1000);
-      setTimeout(function(){ 
-        $('.black').first().remove();
-      },1000);
+      setTimeout(function(){$('.red').first().remove();},1000);
+      setTimeout(function(){ $('.green').first().remove(); },1000);
+      setTimeout(function(){ $('.purple').first().remove();},1000);
+      setTimeout(function(){ $('.yellow').first().remove();},1000);
+      setTimeout(function(){ $('.black').first().remove(); },1000);
     },800);
 
-    setTimeout(function(){
-      stage = $("#stage");
-      stage.fadeOut(1500, function(){
-        $('#stage').remove(); 
+    var cleanUpTimer = setTimeout(function(){
+      var stage = $("#stage");
+      stage.fadeOut(1600, function(){
+        $(this).remove(); 
        });
       clearInterval(blastEm);
       clearInterval(cleanEm);
@@ -91,7 +80,7 @@ $(document).ready(function(){
     dropIt();
     keepDropping = setInterval(function(){
       dropIt();
-    }, 1800);  
+    }, 2500);  
   };
 
   $('#repeated').click(function(){
