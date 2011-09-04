@@ -1,122 +1,34 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+abbr,acronym { border:0;
+}
+
 body {
   width:100%;
   height:100%;
-  margin:0px;
-  padding:0px;
   font-size:1em;
   text-align:center;
-}
-@keyframes fade {
-  0% { opacity: 1.0; }
-  100% { opacity: 0.0; }
-}
-
-@keyframes drop {
-  from {top: -2%;}
-  to {top:103%;}
-}
-@keyframes jiggle {
-  from {left:-10px;}
-  50% {left:10px;}
-  to {left:-10px;}
-}
-@keyframes spin{
-    0%   { transform: rotate(0deg) translate(4px, 8px);}
-    100%   { transform: rotate(1800deg) translate(4px, 8px);}
-}
-@-webkit-keyframes fade {
-  0% { opacity: 1.0; }
-  100% { opacity: 0.0; }
-}
-
-@-webkit-keyframes drop {
-  from {top: -2%;}
-  to {top:103%;}
-}
-@-webkit-keyframes jiggle {
-  from {left:-10px;}
-  50% {left:10px;}
-  to {left:-10px;}
-}
-@-webkit-keyframes spin{
-    0%   { -webkit-transform: rotate(0deg) translate(4px, 8px);}
-    100%   { -webkit-transform: rotate(1800deg) translate(4px, 8px);}
-}
-@-moz-keyframes fade {
-  0% { opacity: 1.0; }
-  100% { opacity: 0.0; }
-}
-
-@-moz-keyframes drop {
-  from {top: -2%;}
-  to {top:103%;}
-}
-@-moz-keyframes jiggle {
-  from {left:-10px;}
-  50% {left:10px;}
-  to {left:-10px;}
-}
-@-moz-keyframes spin{
-    0%   { -moz-transform: rotate(0deg) translate(4px, 8px);}
-    100%   { -moz-transform: rotate(1800deg) translate(4px, 8px);}
-}
-#stage{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  z-index:-1;
-}
-.confetti-container {
-  position: relative;  
-  width:100%;
-  height:90%;
-  float:left;
-  margin:0;
-  padding:0;
-  -webkit-animation-name: jiggle;
-  -webkit-animation-iteration-count:infinite;
-  -webkit-animation-direction: alternate;
-  -webkit-animation-duration: 0.3s;
-  -moz-animation-name: jiggle;
-  -moz-animation-duration: 0.3s;
-  -moz-animation-iteration-count:infinite;
-  -moz-animation-direction: alternate;
-}
-.confetti-piece {
-  position: absolute;
-  display:block;
-  width:8px;
-  height:16px;
-  padding:0px;
-	-webkit-animation-name: fade, drop, spin;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-direction: normal; 
-	-webkit-animation-timing-function: ease-out;
-  -webkit-animation-duration:1.9s;
-	-moz-animation-name: fade, drop, spin;
-  -moz-animation-duration:1.9s;
-	-moz-animation-timing-function: ease-out;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-direction: normal; 
-}
-.red {
-  background-color: #da0000;
-}
-.black {
-  background-color:#0e0e0e;
-}
-.green {
-  background-color: #469639;
-}
-.yellow {
-  background-color: #ff8913;
-}
-.purple {
-  background-color: #5e3e80;
-}
-button{
-  padding:10px;
 }
