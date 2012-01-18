@@ -13,7 +13,7 @@ $(document).ready(function(){
     };
     createTheater();
 
-    var seed = Math.floor(Math.random());  
+    var seed = Math.floor(new Date().getMilliseconds());  
     var blastRed = function(){
        $(redPiece).css('left', Math.floor(Math.random(seed)*101)+'%').appendTo(player);
     };
